@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Cloud Lab Frontend</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background: #f7f7f7;
+        color: #222;
+      }
+
+      .card {
+        max-width: 700px;
+        background: white;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      h1 {
+        margin-top: 0;
+      }
+
+      button {
+        padding: 10px 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      #result {
+        margin-top: 20px;
+        padding: 12px;
+        background: #f1f5f9;
+        border-radius: 8px;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Local Cloud Lab</h1>
+      <p>Frontend mínimo para comprobar conexión con el backend.</p>
+
+      <button id="check-status">Check backend status</button>
+
+      <div id="result">Waiting for request...</div>
+    </div>
+
+    <script>
+      const result = document.getElementById("result");
+      const button = document.getElementById("check-status");
+
+      async function checkStatus() {
+        result.textContent = "Loading...";
+
+        try {
+          const response = await fetch("/api/status");
+          const data = await response.json();
+          result.textContent = JSON.stringify(data, null, 2);
+        } catch (error) {
+          result.textContent = `Error: ${error.message}`;
+        }
+      }
+
+      button.addEventListener("click", checkStatus);
+    </script>
+  </body>
+</html>
