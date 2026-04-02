@@ -18,7 +18,7 @@ Aprender paso a paso infraestructura como código, despliegue local y comunicaci
 - [x] Crear clúster local con kind
 - [x] Entender conceptos básicos de Kubernetes
 - [x] Desplegar una aplicación simple en Kubernetes
-- [ ] Conectar Terraform con Kubernetes
+- [x] Conectar Terraform con Kubernetes
 - [ ] Desplegar un backend simple
 - [ ] Desplegar un frontend simple
 - [ ] Añadir API Gateway
@@ -30,6 +30,7 @@ Aprender paso a paso infraestructura como código, despliegue local y comunicaci
 
 - [01 - Crear clúster local con kind](docs/01-kind-cluster.md)
 - [02 - Primer despliegue en Kubernetes](docs/02-first-k8s-deployment.md)
+- [03 - Primeros recursos de Kubernetes con Terraform](docs/03-terraform-kubernetes.md)
 
 ## Estructura del proyecto
 
