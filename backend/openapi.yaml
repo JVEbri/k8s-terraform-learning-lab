@@ -1,0 +1,52 @@
+openapi: 3.0.3
+info:
+  title: Lab Status API
+  version: 1.0.0
+  description: Minimal API for the Local Cloud Lab.
+
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+
+paths:
+  /:
+    get:
+      summary: Root endpoint
+      operationId: getRootStatus
+      tags:
+        - Status
+      responses:
+        "200":
+          description: Root status response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: lab-status-api
+                  message:
+                    type: string
+                    example: "Lab status: OK"
+                  version:
+                    type: string
+                    example: 1.0.0
+
+  /status:
+    get:
+      summary: Lab health status
+      operationId: getStatus
+      tags:
+        - Status
+      responses:
+        "200":
+          description: Health response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  labStatus:
+                    type: string
+                    example: OK
